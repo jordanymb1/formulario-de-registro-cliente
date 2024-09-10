@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validarFormulario(event) {
+            event.preventDefault();  
+
+            // Obtener los valores de los campos
+            const cedula = document.getElementById('cedula').value.trim();
+            const apellidos = document.getElementById('apellidos').value.trim();
+            const nombres = document.getElementById('nombres').value.trim();
+            const direccion = document.getElementById('direccion').value.trim();
+            const correo = document.getElementById('correo').value.trim();
+            const fechaNacimiento = document.getElementById('fecha_nacimiento').value;
+            const ciudad = document.getElementById('ciudad').value;
+
+            // Validar que todos los campos estén completos
+            if (cedula === "" || apellidos === "" || nombres === "" || direccion === "" || correo === "" || fechaNacimiento === "" || ciudad === "") {
+                alert('Por favor, complete todos los campos.');
+                return;
+            }
+
+            // Mostrar mensaje de éxito
+            alert('Registro exitoso');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Clientes</h1>
+        <form onsubmit="validarFormulario(event)">
+            <div class="form-group">
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+            </div>
+            <div class="form-group">
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" required>
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+            </div>
+            <div class="form-group">
+                <label for="ciudad">Ciudad:</label>
+                <select id="ciudad" name="ciudad" required>
+                    <option value="" disabled selected>Seleccione su ciudad</option>
+                    <option value="Guayaquil">Guayaquil</option>
+                    <option value="Quito">Quito</option>
+                    <option value="Cuenca">Cuenca</option>
+                    <option value="Manta">Manta</option>
+                    <option value="Portoviejo">Portoviejo</option>
+                </select>
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</body>
+</html>
